@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>   // rand(), srand()
+#include <ctime>     // time()
+using namespace std;
+
+int main() {
+    const int N = 1000;        // ukuran data sesuai instruksi modul
+    int data[N];
+
+    srand(time(0));            // seed random agar hasil berbeda setiap dijalankan
+
+    // --- Langkah 1: isi array dengan data acak ---
+    for (int i = 0; i < N; i++) {
+        data[i] = rand() % 5000 + 1;   // angka acak 1 - 5000
+    }
+
+    // Cetak 20 data pertama sebagai bukti bahwa array sudah terisi acak
+    cout << "20 data pertama dalam array acak:\n";
+    for (int i = 0; i < 20; i++) {
+        cout << data[i] << " ";
+    }
+    cout << "\n\nArray siap digunakan untuk langkah eksperimen berikutnya.\n";
+
+    return 0;
+}
