@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+// ---- fungsi pencarian sekuensial asli dari modul ----
+int cari_sekuensial(int data[], int s, int cari) { 
+   bool ketemu; 
+   int i = 0;
+
+   ketemu = false; 
+   while ((i < s) && !(ketemu)) { 
+      ketemu = (data[i++] == cari); 
+   }
+
+   if (ketemu) { 
+      return i; 
+   } else { 
+      return -1 * i; 
+   } 
+}
+// ------------------------------------------------------
+
+
+int main() {
+    const int N = 15;
+    int data[N];
+
+    // Data TERURUT (misal 1–15)
+    for (int i = 0; i < N; i++) {
+        data[i] = i + 1;
+    }
+
+    int terkecil = data[0];       // elemen pertama
+    int terbesar = data[N - 1];   // elemen terakhir
+
+    int langkah_kecil = cari_sekuensial(data, N, terkecil);
+    int langkah_besar = cari_sekuensial(data, N, terbesar);
+
+    cout << "LATIHAN 1: Pencarian Sekuensial pada Data Terurut\n";
+    cout << "---------------------------------------------------\n";
+
+    cout << "Data paling kecil (" << terkecil << ") ditemukan dalam "
+         << langkah_kecil << " langkah.\n";
+
+    cout << "Data paling besar (" << terbesar << ") ditemukan dalam "
+         << langkah_besar << " langkah.\n";
+
+    return 0;
+}
