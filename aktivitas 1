@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+// --- fungsi asli dari modul ---
+int cari_sekuensial(int data[], int s, int cari) { 
+   bool ketemu; 
+   int i = 0;
+
+   ketemu = false; 
+   while ((i < s) && !(ketemu)) { 
+      ketemu = (data[i++] == cari); 
+   }
+
+   if (ketemu) { 
+      return i; 
+   } else { 
+      return -1 * i; 
+   } 
+}
+// --- akhir fungsi modul ---
+
+
+int main() {
+    // Contoh data (kamu boleh ganti)
+    int data[] = {12, 7, 25, 30, 18, 5, 40, 22, 15};
+    int n = sizeof(data) / sizeof(data[0]);
+
+    int cari;
+    cout << "Masukkan angka yang ingin dicari: ";
+    cin >> cari;
+
+    int hasil = cari_sekuensial(data, n, cari);
+
+    cout << "\nHASIL PENCARIAN\n";
+    cout << "-------------------------\n";
+
+    if (hasil > 0) {
+        cout << "Data ditemukan dalam " << hasil << " langkah.\n";
+    } else {
+        cout << "Data TIDAK ditemukan.\n";
+        cout << "Jumlah langkah: " << -hasil << endl;
+    }
+
+    return 0;
+}
