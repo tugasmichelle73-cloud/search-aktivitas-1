@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+// ---- fungsi pencarian biner asli modul ----
+int cari_biner(int data[], int s, int cari) { 
+   int a, b, t, langkah; 
+   bool ketemu;
+
+   a = 0; 
+   b = s - 1; 
+   langkah = 0; 
+   ketemu = false;
+
+   do { 
+      t = (a + b) / 2; 
+      if (data[t] == cari) { 
+         ketemu = true; 
+      } else { 
+         if (data[t] > cari) { 
+            b = t - 1; 
+         } else { 
+            a = t + 1; 
+         } 
+      } 
+      langkah++; 
+   } while ((a <= b) && !(ketemu)); 
+
+   return ketemu ? langkah : -1 * langkah; 
+}
+// -------------------------------------------
+
+int main() {
+    const int N = 15;
+    int data[N];
+
+    // Data TERURUT (1–15)
+    for (int i = 0; i < N; i++) {
+        data[i] = i + 1;
+    }
+
+    int terkecil = data[0];       // elemen pertama
+    int terbesar = data[N - 1];   // elemen terakhir
+
+    int langkah_kecil = cari_biner(data, N, terkecil);
+    int langkah_besar = cari_biner(data, N, terbesar);
+
+    cout << "LATIHAN 2: Pencarian Biner pada Data Terurut\n";
+    cout << "------------------------------------------------\n";
+
+    cout << "Data paling kecil (" << terkecil << ") ditemukan dalam "
+         << langkah_kecil << " langkah.\n";
+
+    cout << "Data paling besar (" << terbesar << ") ditemukan dalam "
+         << langkah_besar << " langkah.\n";
+
+    return 0;
+}
