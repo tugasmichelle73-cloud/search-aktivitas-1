@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+// Fungsi rekursif untuk Fibonacci
+int fibonacci(int n) {
+    if (n == 0) return 0;       // basis kasus
+    else if (n == 1) return 1;  // basis kasus
+    else return fibonacci(n-1) + fibonacci(n-2); // rekursi
+}
+
+int main() {
+    int jumlah;
+    cout << "Masukkan jumlah deret: ";
+    cin >> jumlah;
+
+    cout << "Deret Fibonacci: ";
+    for (int i = 0; i < jumlah; i++) {
+        cout << fibonacci(i) << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
