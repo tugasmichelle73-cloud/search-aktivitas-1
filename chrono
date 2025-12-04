@@ -1,0 +1,12 @@
+#include <iostream>
+#include <chrono>
+#include <ctime>
+using namespace std;
+
+int main() {
+    auto sekarang = chrono::system_clock::now();
+    time_t waktu = chrono::system_clock::to_time_t(sekarang);
+
+    cout << "Waktu sekarang: " << ctime(&waktu);
+    return 0;
+}
