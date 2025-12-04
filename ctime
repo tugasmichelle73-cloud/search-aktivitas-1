@@ -1,0 +1,13 @@
+#include <iostream>
+#include <cstdlib>   
+#include <ctime>     
+using namespace std;
+
+int main() {
+    srand(time(0));
+    cout << "Random default: " << rand() << endl;
+    cout << "Random 0-9: " << rand() % 10 << endl;
+    cout << "Random 1-6: " << (rand() % 6) + 1 << endl;
+
+    return 0;
+}
