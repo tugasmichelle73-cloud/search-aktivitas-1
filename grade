@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+struct Mahasiswa {
+    string nama;
+    int nilai;
+    char grade;
+};
+
+
+char hitungGrade(int nilai) {
+    if (nilai >= 75) return 'A';
+    else if (nilai >= 60) return 'B';
+    else if (nilai >= 30) return 'C';
+    else return 'D'; 
+}
+
+int main() {
+    Mahasiswa mhs;
+
+    cout << "Masukkan nama: ";
+    cin >> mhs.nama;
+    cout << "Masukkan nilai: ";
+    cin >> mhs.nilai;
+
+    mhs.grade = hitungGrade(mhs.nilai);
+
+    cout << "\nData Mahasiswa:\n";
+    cout << "Nama  : " << mhs.nama << endl;
+    cout << "Nilai : " << mhs.nilai << endl;
+    cout << "Grade : " << mhs.grade << endl;
+
+    return 0;
+}
