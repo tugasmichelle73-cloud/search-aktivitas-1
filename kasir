@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+struct barang{
+    string nama;
+    int harga;
+};
+
+int main(){
+    barang daftar [3]={
+        {"melon", 2000},
+        {"mangga", 6000},
+        {"manggis", 1000},
+    };
+    int pilih, jumlah, total=0;
+    for (int i = 0; i<3; i++) {
+        cout << i+1 << "" << daftar[i].harga << endl;
+    }
+    
+  
+        cout<< "pilih barang (1-3):";
+        cin >> pilih;
+        cout << "jumlah:";
+        cin>> jumlah;
+        
+        total = daftar[pilih-1].harga*jumlah;
+        cout << "\n Anda membeli:" << daftar[pilih-1].nama<<"x"<<jumlah<<endl;
+        cout<< "Total belanja: Rp" << total << endl;
+    
+    
+}
